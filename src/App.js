@@ -3,8 +3,9 @@
 import React from "react";
 import { css } from "@emotion/react";
 import useTestCenters from "./hooks/useTestCenters";
-import Navbar from "./components/navbar";
-import { Switch, Route, Redirect, Link } from "react-router-dom";
+import NavigationBar from "./components/navbar";
+import ErrorPage from "./components/ErrorPage";
+import { Switch, Route, Redirect, Link, useLocation} from "react-router-dom";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -19,7 +20,7 @@ function App() {
 
 	return (
 		<div css={backgroundColor}>
-			<Navbar />
+			<NavigationBar/>
 
 			<Switch>
 				<Route path="/home"></Route>
@@ -29,6 +30,10 @@ function App() {
 				<Route path="/statistic/us/:states/deaths"></Route>
 				<Route path="/testlocation"></Route>
 				<Route exact path="/"></Route>
+        <Route path="*">
+          <ErrorPage location = {useLocation().pathname}/>
+          {/* <Redirect to="/404"/> */}
+        </Route>
 			</Switch>
 		</div>
 	);
