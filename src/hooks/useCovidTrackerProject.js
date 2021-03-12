@@ -7,13 +7,13 @@ function useCovidTrackingProject(props) {
 
 	// Official way of dealing parameter
 	// Reference: https://fetch.spec.whatwg.org/#fetch-api
-	var url = new URL("https://api.covidtracking.com/v1/us/daily.json"),
-		params = { state: props };
+	var url = "https://api.covidtracking.com/v1/us/daily.json";
 
-	Object.keys(params).forEach((key) =>
-		url.searchParams.append(key, params[key])
-	);
-
+	if(props) { 
+		url = `https://api.covidtracking.com/v1/states/${props}/daily.json`
+	}	
+	
+	console.log(url)
 	// here we fetch data with useEffect hook
 	// Note: the dependency is an empty array therefore it is only called once
 

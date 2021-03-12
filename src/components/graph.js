@@ -3,12 +3,16 @@ import React from "react";
 import { css } from "@emotion/react";
 import {Line} from 'react-chartjs-2'
 import useCovidTrackingProject from "./../hooks/useCovidTrackerProject"
+import { useParams } from "react-router-dom"
 
 
 function LineChart(props) {
+    const { state } = useParams();
+    console.log(state)
     let labels = []
     let datas = []
-    const { usStats, isLoading } = useCovidTrackingProject("");
+    console.log(props.type)
+    const { usStats, isLoading } = useCovidTrackingProject(state);
     if(usStats != null) {
         for(let i = 0; i < props.length; i++) {
             let temp = usStats[i]['date']
