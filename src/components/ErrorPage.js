@@ -5,6 +5,7 @@ import { css } from "@emotion/react";
 
 function ErrorPage({location}) {
   console.log("location: ", location);
+  window.history.pushState({}, '', "/404")
   return (
     <>
       <div>
@@ -15,7 +16,7 @@ function ErrorPage({location}) {
           404
         </h1>
         <h3>
-          No match found for 
+          No match found for {location}
         </h3>
       </div>
     </>
