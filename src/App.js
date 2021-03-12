@@ -103,6 +103,7 @@ function App() {
 				<Route exact path="/"></Route>
         <Route path="*">
           <ErrorPage location = {useLocation().pathname}/>
+          {/* {history.push("/404")} */}
           {/* <Redirect to="/404"/> */}
         </Route>
 			</Switch>
