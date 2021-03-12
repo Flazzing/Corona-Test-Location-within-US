@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import useTestCenters from "./hooks/useTestCenters";
 import NavigationBar from "./components/navbar";
 import ErrorPage from "./components/ErrorPage";
-import { Switch, Route, Redirect, Link, useLocation, useHistory} from "react-router-dom";
+import { Switch, Route, Redirect, Link, useLocation} from "react-router-dom";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -13,7 +13,7 @@ const backgroundColor = css`
 `;
 
 function App() {
-	// const { testLocations, isLoading } = useTestCenters("AK");
+	const { testLocations, isLoading } = useTestCenters("AK");
 	// console.log(testLocations);
 
 	// const { globalTracker, isGlobalLoading } = useGlobalTracker();
