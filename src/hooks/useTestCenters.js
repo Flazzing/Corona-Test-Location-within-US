@@ -27,14 +27,27 @@ function useTestCenters(props) {
 	// here we fetch data with useEffect hook
 	// Note: the dependency is an empty array therefore it is only called once
 
-	useEffect(async () => {
-		setIsLoading(true);
-		const response = await fetch(url);
-		const data = await response.json();
-		const [item] = data;
-		setTestLocation(item);
-		setIsLoading(false);
-	}, []);
+  useEffect(() => {
+    async function fetchMyAPI() {
+      
+      let response = await fetch(url);
+      response = await response.json();
+      setTestLocation(response);
+      
+    }
+    setIsLoading(true);
+    fetchMyAPI()
+    setIsLoading(false);
+  }, []);
+
+	// useEffect(async () => {
+	// 	setIsLoading(true);
+	// 	const response = await fetch(url);
+	// 	const data = await response.json();
+	// 	const [item] = data;
+	// 	setTestLocation(item);
+	// 	setIsLoading(false);
+	// }, []);
 
 	return { testLocations, isLoading };
 }
