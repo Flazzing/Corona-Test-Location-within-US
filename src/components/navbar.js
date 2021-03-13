@@ -3,6 +3,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const navBarSize = css`
 	padding-top: 13px;
@@ -33,8 +34,13 @@ function NavigationBar(props) {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link css={navbarItem}>Home</Nav.Link>
-						<Nav.Link css={navbarItem}>Test Location</Nav.Link>
+						<Nav.Link css={navbarItem}>
+							<Link to="/home">Home</Link>
+						</Nav.Link>
+
+						<Nav.Link css={navbarItem}>
+							<Link to="/testlocation">Test Location</Link>
+						</Nav.Link>
 						<NavDropdown
 							css={navbarItem}
 							title="Statistics"
