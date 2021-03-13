@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 /**
  * API Link Reference: https://documenter.getpostman.com/view/11672223/TVCfV7fX#8ef25169-61be-649a-e013-a8160792a1a3
@@ -28,12 +28,14 @@ function useTestCenters(props) {
 	// Note: the dependency is an empty array therefore it is only called once
 
 	useEffect(async () => {
-		setIsLoading(true);
-		const response = await fetch(url);
-		const data = await response.json();
-		const [item] = data;
-		setTestLocation(item);
-		setIsLoading(false);
+		async function fetchData() {
+			setIsLoading(true);
+			const response = await fetch(url);
+			const data = await response.json();
+			setTestLocation(data);
+			setIsLoading(false);
+		}
+		fetchData();
 	}, []);
 
 	return { testLocations, isLoading };
