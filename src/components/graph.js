@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, {useState} from "react";
 import { css } from "@emotion/react";
 import {Line} from 'react-chartjs-2'
 import useCovidTrackingProject from "./../hooks/useCovidTrackerProject"
@@ -8,11 +8,16 @@ import { useParams } from "react-router-dom"
 
 function LineChart(props) {
     const { state } = useParams();
-    console.log(state)
+    const [st, setST] = useState(state)
+    if(state != st) {
+        setST(state)
+    }
+    console.log(st)
     let labels = []
     let datas = []
     console.log(props.type)
-    const { usStats, isLoading } = useCovidTrackingProject(state);
+    const { usStats, isLoading } = useCovidTrackingProject(st);
+
     if(usStats != null) {
         for(let i = 0; i < props.length; i++) {
             let temp = usStats[i]['date']

@@ -22,10 +22,10 @@ function useCovidTrackingProject(props) {
 		const response = await fetch(url);
 		const data = await response.json();
 		const item = data;
+		console.log(item)
 		setUsStats(item);
 		setIsLoading(false);
-	}, []);
-
+	}, [usStats]);
 	return { usStats, isLoading };
 }
 

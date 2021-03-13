@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import useTestCenters from "./hooks/useTestCenters";
 import useCovidTrackingProject from "./hooks/useCovidTrackerProject"
 import Navbar from "./components/navbar";
-import { Switch, Route, Redirect, Link } from "react-router-dom";
+import { Switch, Route, Redirect, Link, useHistory} from "react-router-dom";
 import LineChart from "./components/graph"
 import FilterBar from "./components/filterBar"
 
@@ -24,11 +24,12 @@ const chartHolder = css`
 `
 
 function App() {
+	let history = useHistory();
 	//const { testLocations, isLoading } = useTestCenters("AK");
 	// console.log(testLocations);
 
 	// const { globalTracker, isGlobalLoading } = useGlobalTracker();
-
+	
 	return (
 		<div >
 			<Navbar />

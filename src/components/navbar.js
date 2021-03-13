@@ -40,7 +40,7 @@ function NavigationBar(props) {
 							title="Statistics"
 							id="collasible-nav-dropdown"
 						>
-							<NavDropdown.Item href="/statistic/us">US Daily Report</NavDropdown.Item>
+							<NavDropdown.Item href="/statistic/us/cases">US Daily Report</NavDropdown.Item>
 							<NavDropdown.Item>State Daily Report</NavDropdown.Item>
 							<NavDropdown.Item>Hospitalization Daily Report</NavDropdown.Item>
 							<NavDropdown.Item>Mortality rate Report</NavDropdown.Item>

@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, {useState} from "react";
 import { css } from "@emotion/react";
+import { Switch, Route, Redirect, Link, withRouter, useHistory} from "react-router-dom";
 
 const filterBar = css`
     border: 3px solid grey;
-    height: 25vw;
+    height: 20vw;
     width: 10%;
     display: inline-block;
     margin: 1%;
@@ -34,16 +35,37 @@ const radio = css`
     width: 80%;
     margin:auto;
 `
+const submit = css`
+    align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    margin-top: 50%;
+    font-size: .8vw;
+`
+const lab = css`
+    font-size: .8vw;
+`
 
-function changeFunc() {
-    
+function changeFunc(st, dataType, props) {
+    console.log(st, dataType)
 }
 
-function FilterBar() {
+function FilterBar(props) {
+    const history = useHistory();
+    const [dropdown, setDropdown] = useState("Entire Nation")
+    const [radioButton, setButton] = useState("cases")
     return(
         <>
-            <form css={filterBar}>
-                <select id="states" name="states" css={dropDown}>
+            <form css={filterBar} onSubmit={(e) => {
+                    e.preventDefault();
+                    if(dropdown != "") {
+                        history.replace(`/statistic/us/${dropdown}/${radioButton}`);
+                    } else {
+                        history.replace(`/statistic/us/${radioButton}`)
+                    }
+                }}>
+                <select value={dropdown} id="states" name="state" css={dropDown} onChange={(e)=>{setDropdown(e.target.value)}}>
                     <option value="">Entire Nation</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -99,24 +121,25 @@ function FilterBar() {
                 </select>
                 <div css={radioHolder}>
                     <div css={radio}>
-                        <input type="radio" id="cases" name="drone" value="cases"></input>
-                        <label for="cases">Cases</label>
+                        <input onChange={(e)=>{setButton(e.target.value)}} type="radio" id="cases" name="drone" value="cases"></input>
+                        <label css={lab} for="cases">Cases</label>
                     </div>
 
                     <div css={radio}>
-                        <input type="radio" id="deaths" name="drone" value="deaths"></input>
-                        <label for="deaths">Deaths</label>
+                        <input onChange={(e)=>{setButton(e.target.value)}} type="radio" id="deaths" name="drone" value="deaths"></input>
+                        <label css={lab} for="deaths">Deaths</label>
                     </div>
 
                     <div css={radio}>
-                        <input type="radio" id="hospitalizations" name="drone" value="hospitalizations"></input>
-                        <label for="hospitalizations">Hospitalizations</label>
+                        <input onChange={(e)=>{setButton(e.target.value)}} type="radio" id="hospitalizations" name="drone" value="hospitalizations"></input>
+                        <label css={lab} for="hospitalizations">Hospitalizations</label>
                     </div>
                 </div>
+                <input type="submit" value="Submit" css={submit}></input>
             </form>
 
         </>
     )
 }
 
-export default FilterBar;
+export default withRouter(FilterBar);
