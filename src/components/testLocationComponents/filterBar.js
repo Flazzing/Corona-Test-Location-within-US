@@ -1,47 +1,35 @@
 /** @jsxImportSource @emotion/react */
+
 import React, { useState } from "react";
+import { Form, Button, Row, Nav } from "react-bootstrap";
 import { css } from "@emotion/react";
-import {
-	Switch,
-	Route,
-	Redirect,
-	Link,
-	withRouter,
-	useHistory,
-} from "react-router-dom";
 
-const filterBar = css`
-	border: 3px solid grey;
-	height: 20vw;
-	width: 10%;
-	display: inline-block;
-	margin: 1%;
-	background-color: #f7f7f7;
-	vertical-align: top;
+const container = css`
+	background-color: white;
+	position: fixed;
+	top: 80px;
+	bottom: 0;
+	left: 0;
+	min-height: 100vh !important;
+	z-index: 100;
+	padding: 48px 0 0;
+	box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+	--offset: var(--space);
+	/* ... */
+	position: sticky;
+	top: var(--offset);
 `;
 
-const dropDown = css`
-	width: 75%;
-	margin: auto;
-	align: center;
+const innerBox = css`
 	border: 2px solid grey;
-	border-radius: 3px;
-	display: block;
-	margin-top: 5px;
-`;
-const radioHolder = css`
-	border: 2px solid grey;
-	margin: auto;
-	margin-top: 30%;
+	margin-left: 15px;
+	margin-right: 10px;
+	padding: 10px;
 	width: 90%;
+	height: 800px;
 	align: center;
 `;
 
-const radio = css`
-	align: center;
-	width: 80%;
-	margin: auto;
-`;
 const submit = css`
 	align: center;
 	margin-left: 30%;
@@ -50,143 +38,91 @@ const submit = css`
 	margin-top: 50%;
 	font-size: 0.8vw;
 `;
-const lab = css`
-	font-size: 0.8vw;
+
+const dropDownItem = css`
+	margin: 0px;
 `;
 
-function changeFunc(st, dataType, props) {
-	console.log(st, dataType);
-}
-
-function FilterBar(props) {
-	const history = useHistory();
-	const [dropdown, setDropdown] = useState("Entire Nation");
+function Filterbar() {
+	const [dropdown, setDropdown] = useState("");
 	const [radioButton, setButton] = useState("cases");
+
 	return (
-		<>
-			<form
-				css={filterBar}
-				onSubmit={(e) => {
-					e.preventDefault();
-					if (dropdown != "") {
-						history.replace(`/statistic/us/${dropdown}/${radioButton}`);
-					} else {
-						history.replace(`/statistic/us/${radioButton}`);
-					}
-				}}
+		<div css={container}>
+			<Nav
+				className="col-md-12 d-none d-md-block bg-light sidebar"
+				activeKey="/home"
+				onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
 			>
-				<select
-					value={dropdown}
-					id="states"
-					name="state"
-					css={dropDown}
-					onChange={(e) => {
-						setDropdown(e.target.value);
-					}}
-				>
-					<option value="">Entire Nation</option>
-					<option value="AL">Alabama</option>
-					<option value="AK">Alaska</option>
-					<option value="AZ">Arizona</option>
-					<option value="AR">Arkansas</option>
-					<option value="CA">California</option>
-					<option value="CO">Colorado</option>
-					<option value="CT">Connecticut</option>
-					<option value="DE">Delaware</option>
-					<option value="DC">District Of Columbia</option>
-					<option value="FL">Florida</option>
-					<option value="GA">Georgia</option>
-					<option value="HI">Hawaii</option>
-					<option value="ID">Idaho</option>
-					<option value="IL">Illinois</option>
-					<option value="IN">Indiana</option>
-					<option value="IA">Iowa</option>
-					<option value="KS">Kansas</option>
-					<option value="KY">Kentucky</option>
-					<option value="LA">Louisiana</option>
-					<option value="ME">Maine</option>
-					<option value="MD">Maryland</option>
-					<option value="MA">Massachusetts</option>
-					<option value="MI">Michigan</option>
-					<option value="MN">Minnesota</option>
-					<option value="MS">Mississippi</option>
-					<option value="MO">Missouri</option>
-					<option value="MT">Montana</option>
-					<option value="NE">Nebraska</option>
-					<option value="NV">Nevada</option>
-					<option value="NH">New Hampshire</option>
-					<option value="NJ">New Jersey</option>
-					<option value="NM">New Mexico</option>
-					<option value="NY">New York</option>
-					<option value="NC">North Carolina</option>
-					<option value="ND">North Dakota</option>
-					<option value="OH">Ohio</option>
-					<option value="OK">Oklahoma</option>
-					<option value="OR">Oregon</option>
-					<option value="PA">Pennsylvania</option>
-					<option value="RI">Rhode Island</option>
-					<option value="SC">South Carolina</option>
-					<option value="SD">South Dakota</option>
-					<option value="TN">Tennessee</option>
-					<option value="TX">Texas</option>
-					<option value="UT">Utah</option>
-					<option value="VT">Vermont</option>
-					<option value="VA">Virginia</option>
-					<option value="WA">Washington</option>
-					<option value="WV">West Virginia</option>
-					<option value="WI">Wisconsin</option>
-					<option value="WY">Wyoming</option>
-				</select>
-				<div css={radioHolder}>
-					<div css={radio}>
-						<input
-							onChange={(e) => {
-								setButton(e.target.value);
-							}}
-							type="radio"
-							id="cases"
-							name="drone"
-							value="cases"
-						></input>
-						<label css={lab} for="cases">
-							Cases
-						</label>
-					</div>
-
-					<div css={radio}>
-						<input
-							onChange={(e) => {
-								setButton(e.target.value);
-							}}
-							type="radio"
-							id="deaths"
-							name="drone"
-							value="deaths"
-						></input>
-						<label css={lab} for="deaths">
-							Deaths
-						</label>
-					</div>
-
-					<div css={radio}>
-						<input
-							onChange={(e) => {
-								setButton(e.target.value);
-							}}
-							type="radio"
-							id="hospitalizations"
-							name="drone"
-							value="hospitalizations"
-						></input>
-						<label css={lab} for="hospitalizations">
-							Hospitalizations
-						</label>
-					</div>
+				<div css={innerBox}>
+					<div css={dropdown}>Select state to display Location</div>
+					<select
+						value={dropdown}
+						id="states"
+						name="state"
+						css={dropDownItem}
+						onChange={(e) => {
+							setDropdown(e.target.value);
+						}}
+					>
+						<option value="">All</option>
+						<option value="AL">Alabama</option>
+						<option value="AK">Alaska</option>
+						<option value="AZ">Arizona</option>
+						<option value="AR">Arkansas</option>
+						<option value="CA">California</option>
+						<option value="CO">Colorado</option>
+						<option value="CT">Connecticut</option>
+						<option value="DE">Delaware</option>
+						<option value="DC">District Of Columbia</option>
+						<option value="FL">Florida</option>
+						<option value="GA">Georgia</option>
+						<option value="HI">Hawaii</option>
+						<option value="ID">Idaho</option>
+						<option value="IL">Illinois</option>
+						<option value="IN">Indiana</option>
+						<option value="IA">Iowa</option>
+						<option value="KS">Kansas</option>
+						<option value="KY">Kentucky</option>
+						<option value="LA">Louisiana</option>
+						<option value="ME">Maine</option>
+						<option value="MD">Maryland</option>
+						<option value="MA">Massachusetts</option>
+						<option value="MI">Michigan</option>
+						<option value="MN">Minnesota</option>
+						<option value="MS">Mississippi</option>
+						<option value="MO">Missouri</option>
+						<option value="MT">Montana</option>
+						<option value="NE">Nebraska</option>
+						<option value="NV">Nevada</option>
+						<option value="NH">New Hampshire</option>
+						<option value="NJ">New Jersey</option>
+						<option value="NM">New Mexico</option>
+						<option value="NY">New York</option>
+						<option value="NC">North Carolina</option>
+						<option value="ND">North Dakota</option>
+						<option value="OH">Ohio</option>
+						<option value="OK">Oklahoma</option>
+						<option value="OR">Oregon</option>
+						<option value="PA">Pennsylvania</option>
+						<option value="RI">Rhode Island</option>
+						<option value="SC">South Carolina</option>
+						<option value="SD">South Dakota</option>
+						<option value="TN">Tennessee</option>
+						<option value="TX">Texas</option>
+						<option value="UT">Utah</option>
+						<option value="VT">Vermont</option>
+						<option value="VA">Virginia</option>
+						<option value="WA">Washington</option>
+						<option value="WV">West Virginia</option>
+						<option value="WI">Wisconsin</option>
+						<option value="WY">Wyoming</option>
+					</select>
+					<input type="submit" value="Submit" css={submit}></input>
 				</div>
-				<input type="submit" value="Submit" css={submit}></input>
-			</form>
-		</>
+			</Nav>
+		</div>
 	);
 }
 
-export default withRouter(FilterBar);
+export default Filterbar;
