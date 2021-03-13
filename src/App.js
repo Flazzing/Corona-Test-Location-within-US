@@ -3,9 +3,9 @@
 import React from "react";
 import { css } from "@emotion/react";
 import useTestCenters from "./hooks/useTestCenters";
-import NavigationBar from "./components/navbar";
-import ErrorPage from "./components/ErrorPage";
+import Navbar from "./components/navbar";
 import { Switch, Route, Redirect, Link, useLocation} from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -19,7 +19,7 @@ function App() {
 	// const { globalTracker, isGlobalLoading } = useGlobalTracker();
 	return (
 		<div css={backgroundColor}>
-			<NavigationBar/>
+			<Navbar/>
 
 			<Switch>
 				<Route path="/home"></Route>
