@@ -3,7 +3,7 @@
 import { css } from "@emotion/react";
 import Navbar from "./components/navbar";
 import { Switch, Route } from "react-router-dom";
-import TestLocationMap from "./components/testLocationComponents/testLocationMap";
+import LocationMapApp from "./components/testLocationComponents/locationMapApp";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -22,7 +22,7 @@ function App() {
 				<Route path="/statistic/us/:states/hospitalizations"></Route>
 				<Route path="/statistic/us/:states/deaths"></Route>
 				<Route path="/testlocation">
-					<TestLocationMap />
+					<LocationMapApp />
 				</Route>
 				<Route exact path="/"></Route>
 			</Switch>
