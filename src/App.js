@@ -37,7 +37,7 @@ function App() {
 
 	return (
 		<div css={backgroundColor}>
-			<NavigationBar/>
+			<Navbar/>
 
 			<Switch>
 				<Route path="/home"></Route>
