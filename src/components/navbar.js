@@ -34,12 +34,12 @@ function NavigationBar(props) {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link css={navbarItem}>
-							<Link to="/home">Home</Link>
+						<Nav.Link css={navbarItem} as={Link} to="/home">
+							Home
 						</Nav.Link>
 
-						<Nav.Link css={navbarItem}>
-							<Link to="/testlocation">Test Location</Link>
+						<Nav.Link css={navbarItem} as={Link} to="/testlocation">
+							Test Location
 						</Nav.Link>
 						<NavDropdown
 							css={navbarItem}

@@ -17,6 +17,7 @@ function useTestCenters(props) {
 
 	// Official way of dealing parameter
 	// Reference: https://fetch.spec.whatwg.org/#fetch-api
+
 	var url = new URL("https://sheetlabs.com/NCOR/covidtestcentersinUS"),
 		params = { state: props };
 

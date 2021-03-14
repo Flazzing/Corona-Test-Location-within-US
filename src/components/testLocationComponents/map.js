@@ -1,4 +1,6 @@
-import React, { useEffect, useState, memo } from "react";
+/** @jsxImportSource @emotion/react */
+
+import { useEffect, useState, memo } from "react";
 import {
 	GoogleMap,
 	useJsApiLoader,
@@ -7,26 +9,27 @@ import {
 } from "@react-google-maps/api";
 import { Card } from "react-bootstrap";
 
-import useTestCenters from "../../hooks/useTestCenters";
-
+import { useSelector } from "react-redux";
+import { getTestLocationList } from "../../redux/testLocation/selector";
 const containerStyle = {
 	width: "100%",
-	height: "700px",
+	height: "860px",
 };
 
 const center = {
-	lat: 44.564568,
-	lng: -123.262047,
+	lat: 39.011902,
+	lng: -98.484245,
 };
 
 function TestLocationMap() {
+	const locationList = useSelector(getTestLocationList);
+
 	const { isLoaded } = useJsApiLoader({
 		id:
 			"https://maps.googleapis.com/maps/api/js?key=AIzaSyAFex0mi6Ezx0l9IJDPcCiXTw-Xsac0xqg",
 		googleMapsApiKey: "AIzaSyAFex0mi6Ezx0l9IJDPcCiXTw-Xsac0xqg",
 	});
 
-	const { testLocations, isLoading } = useTestCenters("OR");
 	const [selectedData, setSelectedData] = useState(null);
 
 	useEffect(() => {
@@ -44,23 +47,19 @@ function TestLocationMap() {
 
 	var key = 0;
 	return isLoaded ? (
-		<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-			{
-				/* Child components, such as markers, info windows, etc. */
-
-				testLocations.map((location) => (
-					<Marker
-						key={key++}
-						position={{
-							lat: parseFloat(location.lat),
-							lng: location.lon,
-						}}
-						onClick={() => {
-							setSelectedData(location);
-						}}
-					/>
-				))
-			}
+		<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
+			{locationList.map((location) => (
+				<Marker
+					key={key++}
+					position={{
+						lat: parseFloat(location.location.lat),
+						lng: parseFloat(location.location.lon),
+					}}
+					onClick={() => {
+						setSelectedData(location.location);
+					}}
+				/>
+			))}
 
 			{selectedData && (
 				<InfoWindow
@@ -85,8 +84,6 @@ function TestLocationMap() {
 					</Card>
 				</InfoWindow>
 			)}
-
-			<></>
 		</GoogleMap>
 	) : (
 		<></>
