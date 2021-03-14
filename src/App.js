@@ -1,9 +1,12 @@
 /** @jsxImportSource @emotion/react */
-
+import { useSelector } from "react-redux";
 import { css } from "@emotion/react";
 import Navbar from "./components/navbar";
 import { Switch, Route } from "react-router-dom";
-import LocationMapApp from "./components/testLocationComponents/locationMapApp";
+import { getTestLocationList } from "./redux/testLocation/selector";
+
+import testLocationRedux from "./components/testLocationComponents/testLocationRedux";
+import MapApp from "./components/testLocationComponents/app";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -11,6 +14,8 @@ const backgroundColor = css`
 `;
 
 function App() {
+	testLocationRedux();
+
 	return (
 		<div css={backgroundColor}>
 			<Navbar />
@@ -22,7 +27,7 @@ function App() {
 				<Route path="/statistic/us/:states/hospitalizations"></Route>
 				<Route path="/statistic/us/:states/deaths"></Route>
 				<Route path="/testlocation">
-					<LocationMapApp />
+					<MapApp />
 				</Route>
 				<Route exact path="/"></Route>
 			</Switch>
