@@ -5,3 +5,7 @@ export function getTestLocationList(state) {
 export function getFilterLocation(state) {
 	return state.filterLocation;
 }
+
+export function getBookmarkLocation(state) {
+	return state.bookmarkLocation;
+}

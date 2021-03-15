@@ -50,7 +50,7 @@ const dropDownItem = css`
 function Filterbar() {
 	const dispatch = useDispatch();
 	// default value is all
-	const [selectedState, setSelectedState] = useState();
+	const [selectedState, setSelectedState] = useState("AL");
 
 	return (
 		<div css={container}>
