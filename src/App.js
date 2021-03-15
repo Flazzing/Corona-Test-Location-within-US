@@ -7,6 +7,7 @@ import { getTestLocationList } from "./redux/testLocation/selector";
 
 import testLocationRedux from "./components/testLocationComponents/testLocationRedux";
 import MapApp from "./components/testLocationComponents/app";
+import BookmarkList from "./components/testLocationComponents/bookmarkList";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -26,8 +27,11 @@ function App() {
 				<Route path="/statistic/us/:state"></Route>
 				<Route path="/statistic/us/:states/hospitalizations"></Route>
 				<Route path="/statistic/us/:states/deaths"></Route>
-				<Route path="/testlocation">
+				<Route exact path="/testlocation">
 					<MapApp />
+				</Route>
+				<Route exact path="/testlocation/bookmark">
+					<BookmarkList />
 				</Route>
 				<Route exact path="/"></Route>
 			</Switch>

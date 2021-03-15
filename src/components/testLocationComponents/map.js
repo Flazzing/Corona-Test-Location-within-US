@@ -8,9 +8,14 @@ import {
 	InfoWindow,
 } from "@react-google-maps/api";
 import { Card } from "react-bootstrap";
-
 import { useSelector } from "react-redux";
-import { getTestLocationList } from "../../redux/testLocation/selector";
+import {
+	getTestLocationList,
+	getBookmarkLocation,
+} from "../../redux/testLocation/selector";
+
+import BookmarkButton from "./bookmarkButton";
+
 const containerStyle = {
 	width: "100%",
 	height: "860px",
@@ -23,6 +28,11 @@ const center = {
 
 function TestLocationMap() {
 	const locationList = useSelector(getTestLocationList);
+	const bookmarkList = useSelector(getBookmarkLocation);
+	console.log("bookmarkList");
+	bookmarkList.forEach((e) => {
+		console.log(e);
+	});
 
 	const { isLoaded } = useJsApiLoader({
 		id:
@@ -46,6 +56,7 @@ function TestLocationMap() {
 	}, []);
 
 	var key = 0;
+
 	return isLoaded ? (
 		<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
 			{locationList.map((location) => (
@@ -73,6 +84,11 @@ function TestLocationMap() {
 				>
 					<Card>
 						<Card.Body>
+							<BookmarkButton
+								selectedData={selectedData}
+								bookmarkerStatus={false}
+							/>
+
 							<Card.Title>{selectedData.centername}</Card.Title>
 							<Card.Text>{selectedData.address}</Card.Text>
 							<Card.Text>

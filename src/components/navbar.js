@@ -41,6 +41,9 @@ function NavigationBar(props) {
 						<Nav.Link css={navbarItem} as={Link} to="/testlocation">
 							Test Location
 						</Nav.Link>
+						<Nav.Link css={navbarItem} as={Link} to="/testlocation/bookmark">
+							bookmark
+						</Nav.Link>
 						<NavDropdown
 							css={navbarItem}
 							title="Statistics"
