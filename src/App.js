@@ -8,11 +8,27 @@ import { getTestLocationList } from "./redux/testLocation/selector";
 import testLocationRedux from "./components/testLocationComponents/testLocationRedux";
 import MapApp from "./components/testLocationComponents/app";
 import BookmarkList from "./components/testLocationComponents/bookmarkList";
+import LineChart from "./components/graphComponents/graph"
+import FilterBar from "./components/graphComponents/filterBar"
 
 const backgroundColor = css`
 	background-color: #000000;
 	${"" /* height: 200px; */}
 `;
+
+const chartHolder = css`
+	width: 60%;
+	height: 25vw;
+	margin: auto;
+	margin-left: 9%;
+	align: center;
+	display: inline-block;
+	background-color: white;
+`
+
+const backgroundC = css`
+	background-color: white;
+`
 
 function App() {
 	testLocationRedux();
@@ -23,6 +39,55 @@ function App() {
 
 			<Switch>
 				<Route path="/home"></Route>
+				<Route path="/graph/us/:state/deaths/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"deathIncrease"} title={"Deaths"}></LineChart>
+						</div>
+					</div>
+				</Route>
+				<Route path="/graph/us/:state/cases/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"positiveIncrease"} title={"Cases"}></LineChart>
+						</div>
+					</div>
+				</Route>
+				<Route path="/graph/us/:state/hospitalizations/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"hospitalizedIncrease"} title={"Hospitalizations"}></LineChart>
+						</div>
+					</div>
+				</Route>
+				<Route path="/graph/us/cases/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"positiveIncrease"} title={"Cases"}></LineChart>
+						</div>
+					</div>
+				</Route>
+				<Route path="/graph/us/deaths/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"deathIncrease"} title={"Deaths"}></LineChart>
+						</div>
+					</div>
+				</Route>
+				<Route path="/graph/us/hospitalizations/:days">
+					<div css={backgroundC}>
+						<FilterBar></FilterBar>
+						<div css={chartHolder}>
+							<LineChart length={30} type={"hospitalizedIncrease"} title={"Hospitalizations"}></LineChart>
+						</div>
+					</div>
+				</Route>
+
 				<Route path="/statistic/us"></Route>
 				<Route path="/statistic/us/:state"></Route>
 				<Route path="/statistic/us/:states/hospitalizations"></Route>
