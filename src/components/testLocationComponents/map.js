@@ -29,7 +29,7 @@ const center = {
 function TestLocationMap() {
 	const locationList = useSelector(getTestLocationList);
 	const bookmarkList = useSelector(getBookmarkLocation);
-	console.log("bookmarkList");
+
 	bookmarkList.forEach((e) => {
 		console.log(e);
 	});
@@ -41,6 +41,7 @@ function TestLocationMap() {
 	});
 
 	const [selectedData, setSelectedData] = useState(null);
+	const [bookmark, setBookmark] = useState(false);
 
 	useEffect(() => {
 		const listener = (e) => {
@@ -67,6 +68,7 @@ function TestLocationMap() {
 						lng: parseFloat(location.location.lon),
 					}}
 					onClick={() => {
+						setSelectedData(null);
 						setSelectedData(location.location);
 					}}
 				/>
@@ -84,10 +86,7 @@ function TestLocationMap() {
 				>
 					<Card>
 						<Card.Body>
-							<BookmarkButton
-								selectedData={selectedData}
-								bookmarkerStatus={false}
-							/>
+							<BookmarkButton selectedData={selectedData} />
 
 							<Card.Title>{selectedData.centername}</Card.Title>
 							<Card.Text>{selectedData.address}</Card.Text>
