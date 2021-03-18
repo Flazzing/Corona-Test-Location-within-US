@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { useSelector } from "react-redux";
 import { css } from "@emotion/react";
+
 import Navbar from "./components/navbar";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect, Link, useLocation} from "react-router-dom";
 import { getTestLocationList } from "./redux/testLocation/selector";
 
 import testLocationRedux from "./components/testLocationComponents/testLocationRedux";
@@ -10,6 +11,7 @@ import MapApp from "./components/testLocationComponents/app";
 import BookmarkList from "./components/testLocationComponents/bookmarkList";
 import LineChart from "./components/graphComponents/graph"
 import FilterBar from "./components/graphComponents/filterBar"
+import ErrorPage from "./components/ErrorPage";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -35,7 +37,7 @@ function App() {
 
 	return (
 		<div css={backgroundColor}>
-			<Navbar />
+			<Navbar/>
 
 			<Switch>
 				<Route path="/home"></Route>
@@ -99,6 +101,13 @@ function App() {
 					<BookmarkList />
 				</Route>
 				<Route exact path="/"></Route>
+        <Route path="*">
+        {/* <div css={backgroundC}> */}
+          <ErrorPage location = {useLocation().pathname}/>
+          
+        {/* </div> */}
+          
+        </Route>
 			</Switch>
 		</div>
 	);

@@ -30,13 +30,13 @@ function useTestCenters(props) {
 
 	useEffect(async () => {
 		async function fetchData() {
-			setIsLoading(true);
 			const response = await fetch(url);
 			const data = await response.json();
 			setTestLocation(data);
-			setIsLoading(false);
 		}
+    setIsLoading(true);
 		fetchData();
+    setIsLoading(false);
 	}, []);
 
 	return { testLocations, isLoading };
