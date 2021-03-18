@@ -21,15 +21,26 @@ const bookmarkButton = css`
 
 function BookmarkButton(selectedData) {
 	const dispatch = useDispatch();
-	const [bookmark, setBookmark] = useState(selectedData.bookmarkerStatus);
-
 	const bookmarkList = useSelector(getBookmarkLocation);
+
+	var value = false;
+	bookmarkList.forEach((element) => {
+		if (
+			element.centername.localeCompare(selectedData.selectedData.centername) ===
+			0
+		) {
+			value = true;
+		}
+	});
+
+	const [bookmark, setBookmark] = useState(value);
+
 	console.log("bookmarkList3");
 	bookmarkList.forEach((e) => {
 		console.log(e);
 	});
 
-	if (selectedData.bookmarkerStatus == true) {
+	if (bookmark == true) {
 		var x = {};
 		bookmarkList.forEach((element) => {
 			if (
