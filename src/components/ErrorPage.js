@@ -3,12 +3,21 @@
 import React from "react";
 import { css } from "@emotion/react";
 
+const errorMessage = css`
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  ${'' /* border: 5px solid #FFFF00; */}
+  ${'' /* padding: 10px; */}
+`
+
 function ErrorPage({location}) {
   console.log("location: ", location);
-  window.history.pushState({}, '', "/404")
+  // window.history.pushState({}, '', "/404");
   return (
-    <>
-      <div>
+      <div css={errorMessage}>
         <h1>
           ¯\_(ツ)_/¯
         </h1>
@@ -19,7 +28,6 @@ function ErrorPage({location}) {
           No match found for {location}
         </h3>
       </div>
-    </>
   );
 
 }

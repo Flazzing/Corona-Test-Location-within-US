@@ -102,9 +102,11 @@ function App() {
 				</Route>
 				<Route exact path="/"></Route>
         <Route path="*">
+        {/* <div css={backgroundC}> */}
           <ErrorPage location = {useLocation().pathname}/>
-          {/* {history.push("/404")} */}
-          {/* <Redirect to="/404"/> */}
+          
+        {/* </div> */}
+          
         </Route>
 			</Switch>
 		</div>
