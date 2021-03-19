@@ -89,7 +89,7 @@ function StatsText(props) {
   let dailyDeaths = 0;
   let totalCases = 0;
   let dailyCases = 0;
-  let totalHospitals = 0;
+  let currentHospitals = 0;
   let dailyHospitals = 0;
   // console.log(props.type);
   const covidData = useCurrentCTP(location);
@@ -105,6 +105,10 @@ function StatsText(props) {
       date = temp2
       totalDeaths = covidData[0].death;
       dailyDeaths = covidData[0].deathIncrease;
+      totalCases = covidData[0].positive;
+      dailyCases = covidData[0].positiveIncrease;
+      currentHospitals = covidData[0].hospitalizedCurrently;
+      dailyHospitals = covidData[0].hospitalizedIncrease;
     }
     else{
       let temp = covidData['date'];
@@ -114,6 +118,10 @@ function StatsText(props) {
       date = temp2;
       totalDeaths = covidData.death;
       dailyDeaths = covidData.deathIncrease;
+      totalCases = covidData.positive;
+      dailyCases = covidData.positiveIncrease;
+      currentHospitals = covidData.hospitalizedCurrently;
+      dailyHospitals = covidData.hospitalizedIncrease;
     }
     return(
       <div css = {statBox}>
@@ -123,8 +131,8 @@ function StatsText(props) {
         <p>Daily Deaths: {dailyDeaths}</p>
         <p>Total Cases: {totalCases}</p>
         <p>Daily Cases: {dailyCases}</p>
-        <p>Total Hospitalizations: {totalHospitals}</p>
-        <p>Daily Hospitalizations: {dailyHospitals}</p>
+        <p>Current Hospitalizatons: {currentHospitals}</p>
+        <p>New Hospitalizations: {dailyHospitals}</p>
       </div>
     ); 
     // <Line data={data} width={100} height={50} options={{ maintainAspectRatio: false }}></Line>
