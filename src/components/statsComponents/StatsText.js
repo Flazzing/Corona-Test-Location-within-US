@@ -11,10 +11,20 @@ const headerDate = css`
 `
 
 const headerText = css`
+  display: block;
+  width: 45%;
+  align:center;
+  margin: auto;
+  font-size: 3vw;
+`
+
+const dateText = css`
   display: inline-block;
   width: 45%;
-  margin-left: 5%;
-  font-size: 3vw;
+  align:center;
+  margin: auto;
+  margin-top: 1%;
+  font-size: 1.7vw;
 `
 
 const blo = css`
@@ -145,7 +155,7 @@ function StatsText(props) {
       <div css = {statBox}>
         <div css={headerDate}>
           <h2 css={headerText}>{getLocationName(location)}</h2>
-          <h3 css={headerText}>{date}</h3>
+          <h3 css={dateText}>{date}</h3>
         </div>
         <div css={headerDate}>
           <p css={statsText}><b css={blo}>Total Deaths</b> {totalDeaths}</p>
