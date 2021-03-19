@@ -26,7 +26,7 @@ const radioHolder = css`
     border: 2px solid grey;
     margin: auto;
     margin-top: 20%;
-    width: 90%;
+    width: 8.5vw;
     align: center;
 `
 
@@ -47,12 +47,13 @@ const submit = css`
     align: center;
     margin-left: 30%;
     margin-right: 30%;
-    width: 40%;
+    width: 4vw;
     margin-top: 20%;
     font-size: .8vw;
 `
 const lab = css`
-    font-size: .8vw;
+    font-size: .6vw;
+    margin-left: 2px;
 `
 
 const num = css`
@@ -60,6 +61,7 @@ const num = css`
     align: center;
     margin: auto;
     text-align: center;
+    font-size: .8vw;
 `
 const num2 = css`
     display: block;
@@ -67,6 +69,7 @@ const num2 = css`
     margin: auto;
     text-align: center;
     font-weight: bold;
+    font-size: .9vw;
 `
 
 function changeFunc(st, dataType, props) {
