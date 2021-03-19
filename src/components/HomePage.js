@@ -33,7 +33,7 @@ const dataText = css`
 `
 
 function HomePage() {
-  const covidData = useCurrentCTP("US");
+  const { covidData, isLoading } = useCurrentCTP("US");
   console.log(covidData);
   let date = "";
   let totalCases = 0;
