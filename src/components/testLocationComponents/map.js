@@ -7,12 +7,16 @@ import {
 	Marker,
 	InfoWindow,
 } from "@react-google-maps/api";
-import { Card } from "react-bootstrap";
+import { css } from "@emotion/react";
+
+import { Card, Button, Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import {
 	getTestLocationList,
 	getBookmarkLocation,
 } from "../../redux/testLocation/selector";
+
+import axios from "axios";
 
 import BookmarkButton from "./bookmarkButton";
 
@@ -25,6 +29,8 @@ const center = {
 	lat: 39.011902,
 	lng: -98.484245,
 };
+
+const shareButton = css``;
 
 function TestLocationMap() {
 	const locationList = useSelector(getTestLocationList);
@@ -42,6 +48,11 @@ function TestLocationMap() {
 
 	const [selectedData, setSelectedData] = useState(null);
 	const [bookmark, setBookmark] = useState(false);
+
+	// true = success
+	// false = fail
+	const [shareStatus, setShareStatus] = useState(null);
+	const [show, setShow] = useState(false);
 
 	useEffect(() => {
 		const listener = (e) => {
@@ -86,8 +97,20 @@ function TestLocationMap() {
 				>
 					<Card>
 						<Card.Body>
+							{show ? (
+								shareStatus ? (
+									<Alert show={show} variant="success">
+										Test location is successfully shared.
+									</Alert>
+								) : (
+									<Alert show={show} variant="danger">
+										Test location is fail to be shared.
+									</Alert>
+								)
+							) : (
+								<></>
+							)}
 							<BookmarkButton selectedData={selectedData} />
-
 							<Card.Title>{selectedData.centername}</Card.Title>
 							<Card.Text>{selectedData.address}</Card.Text>
 							<Card.Text>
@@ -95,6 +118,24 @@ function TestLocationMap() {
 									Last updated {selectedData.lastupdateddate}
 								</small>
 							</Card.Text>
+							<Button
+								css={shareButton}
+								size="sm"
+								onClick={() => {
+									axios
+										.post(" http://localhost:3000/testLocation", selectedData)
+										.then((response) => {
+											setShareStatus(true);
+											setShow(true);
+										})
+										.catch((error) => {
+											setShareStatus(false);
+											setShow(true);
+										});
+								}}
+							>
+								Share test location
+							</Button>
 						</Card.Body>
 					</Card>
 				</InfoWindow>
