@@ -1,5 +1,32 @@
 {
   "testLocation": [
-   
+    {
+      "lastupdateddate": "04-08-2020",
+      "centername": "Sky Lakes Community Health Education Center",
+      "address": "2865 Daggett Ave, Klamath Falls, OR 97601",
+      "city": "Klamath Falls",
+      "state": "OR",
+      "lat": "42.253101",
+      "lon": -121.785099,
+      "url": "https://www.kdrv.com/content/news/Sky-Lakes-expands-drive-up-COVID-19-testing-to-anyone-569425171.html",
+      "telephone": null,
+      "moreinfo": null,
+      "drivethru": "O",
+      "id": 1
+    },
+    {
+      "lastupdateddate": "3/29/2020",
+      "centername": "Douglas County Fairgrounds (Stage)",
+      "address": "2110 Frear St, Roseburg, OR 97471",
+      "city": "Roseburg",
+      "state": "OR",
+      "lat": "43.19477",
+      "lon": -123.35842,
+      "url": "http://www.nrtoday.com/news/health/coronavirus/douglas-public-health-network-demonstrates-its-drive-thru-covid-/article_ea89751b-c965-5d78-88cd-47790dfd15e7.html",
+      "telephone": null,
+      "moreinfo": null,
+      "drivethru": "O",
+      "id": 2
+    }
   ]
 }
