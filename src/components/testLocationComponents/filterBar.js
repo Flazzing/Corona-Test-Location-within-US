@@ -32,19 +32,29 @@ const innerBox = css`
 	margin-right: 10px;
 	padding: 25px;
 	width: 90%;
-	height: 800px;
+	height: 30%;
 	align: center;
 `;
 
 const submit = css`
 	width: 40%;
 	font-size: 0.8vw;
-	margin-left: 45%;
-	margin-top: 25%;
+	align: center;
+	margin:auto;
+	margin-left: 30%;
+	margin-top: 3%;
 `;
 
 const dropDownItem = css`
-	margin: 0px;
+	width: 50%;
+	margin-left: 25%;
+`;
+
+const dropDownlabel = css`
+	width: 100%;
+	text-align: center;
+	font-weight: 400;
+	font-size: .9vw;
 `;
 
 function Filterbar() {
@@ -85,7 +95,7 @@ function Filterbar() {
 								});
 						}}
 					>
-						<div css={dropDownItem}>Select state to display Location</div>
+						<div css={dropDownlabel}>Select state to display Location</div>
 						<select
 							value={selectedState}
 							css={dropDownItem}

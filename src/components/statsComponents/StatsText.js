@@ -99,6 +99,7 @@ function getLocationName(location) {
 
 function StatsText(props) {
   // const place = props.place;
+  
   const { place } = useParams();
   // const { days } = useParams();
   const [location, setLocation] = useState(place);
@@ -117,37 +118,29 @@ function StatsText(props) {
   let currentHospitals = 0;
   let dailyHospitals = 0;
   // console.log(props.type);
-  const covidData = useCurrentCTP(location);
+  const { covidData, isLoading } = useCurrentCTP(place);
+  //const covidData = useCurrentCTP(location);
   
 
-  console.log(covidData);
+  var data
   if(covidData != null) {
-    if(location == "US" || location == "us"){
-      let temp = covidData[0].date;
-      let temp2 = temp.toString();
-      console.log(temp2);
-      temp2 = temp2.slice(4,6) + '-' + temp2.slice(6,8) + '-' + temp2.slice(0,4);
-      date = temp2
-      totalDeaths = covidData[0].death;
-      dailyDeaths = covidData[0].deathIncrease;
-      totalCases = covidData[0].positive;
-      dailyCases = covidData[0].positiveIncrease;
-      currentHospitals = covidData[0].hospitalizedCurrently;
-      dailyHospitals = covidData[0].hospitalizedIncrease;
+    if(Array.isArray(covidData)) {
+      data = covidData[0]
+    } else {
+      data = covidData;
     }
-    else{
-      let temp = covidData['date'];
-      let temp2 = temp.toString();
-      console.log(temp2);
-      temp2 = temp2.slice(4,6) + '-' + temp2.slice(6,8) + '-' + temp2.slice(0,4);
-      date = temp2;
-      totalDeaths = covidData.death;
-      dailyDeaths = covidData.deathIncrease;
-      totalCases = covidData.positive;
-      dailyCases = covidData.positiveIncrease;
-      currentHospitals = covidData.hospitalizedCurrently;
-      dailyHospitals = covidData.hospitalizedIncrease;
-    }
+    console.log("covidData", data);
+    let temp = data.date;
+    let temp2 = temp.toString();
+    console.log(temp2);
+    temp2 = temp2.slice(4,6) + '-' + temp2.slice(6,8) + '-' + temp2.slice(0,4);
+    date = temp2
+    totalDeaths = data.death;
+    dailyDeaths = data.deathIncrease;
+    totalCases = data.positive;
+    dailyCases = data.positiveIncrease;
+    currentHospitals = data.hospitalizedCurrently;
+    dailyHospitals = data.hospitalizedIncrease;
     return(
       <div css = {statBox}>
         <div css={headerDate}>

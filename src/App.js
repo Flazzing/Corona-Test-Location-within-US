@@ -95,8 +95,8 @@ function App() {
 
 				{/* <Route path="/statistic/us"></Route> */}
 				<Route path="/statistic/:place">
-          <StatsPage/>
-        </Route>
+          			<StatsPage/>
+        		</Route>
         <Route path="/statistic/:place/cases"></Route>
 				<Route path="/statistic/:place/hospitalizations"></Route>
 				<Route path="/statistic/:place/deaths"></Route>
