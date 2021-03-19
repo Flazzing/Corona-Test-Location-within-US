@@ -20,6 +20,14 @@ const navbarItem = css`
 	margin-right: 8px;
 `;
 
+const item = css`
+	color: #909497;
+`;
+
+const itembackground = css`
+	background-color: #343a40;
+`;
+
 function NavigationBar(props) {
 	return (
 		<div>
@@ -49,8 +57,16 @@ function NavigationBar(props) {
 							title="Statistics"
 							id="collasible-nav-dropdown"
 						>
-							<NavDropdown.Item href="/graph/us/cases/30">US Daily Graphical Report</NavDropdown.Item>
-							<NavDropdown.Item href="/statistic/us/cases">US Daily Statistical Report</NavDropdown.Item>
+							<NavDropdown.Item css={itembackground}>
+								<Nav.Link as={Link} to="/graph/us/cases/30">
+									<div css={item}>US Daily Graphical Report</div>
+								</Nav.Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item css={itembackground}>
+								<Nav.Link as={Link} to="/statistic/us/cases">
+									<div css={item}>US Daily Statistical Report</div>
+								</Nav.Link>
+							</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
