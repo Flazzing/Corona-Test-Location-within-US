@@ -110,7 +110,9 @@ function App() {
 				<Route exact path="/testlocation/bookmark">
 					<BookmarkList />
 				</Route>
-				<Route exact path="/"></Route>
+				<Route exact path="/">
+          <Redirect to="/home"/>
+        </Route>
         <Route path="*">
         {/* <div css={backgroundC}> */}
           <ErrorPage location = {useLocation().pathname}/>
