@@ -17,15 +17,18 @@ function useCovidTrackingProject(props) {
 	// here we fetch data with useEffect hook
 	// Note: the dependency is an empty array therefore it is only called once
 
-	useEffect(async () => {
-		setIsLoading(true);
-		const response = await fetch(url);
-		const data = await response.json();
-		const item = data;
-		console.log(item)
-		setUsStats(item);
-		setIsLoading(false);
-	}, [usStats]);
+	useEffect(() => {
+    async function fetchData(){
+      setIsLoading(true);
+		  const response = await fetch(url);
+		  const data = await response.json();
+	  	const item = data;
+		  console.log(item)
+		  setUsStats(item);
+		  setIsLoading(false);
+    }
+		fetchData();
+	}, [url]);
 	return { usStats, isLoading };
 }
 

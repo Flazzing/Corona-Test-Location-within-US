@@ -12,6 +12,9 @@ import BookmarkList from "./components/testLocationComponents/bookmarkList";
 import LineChart from "./components/graphComponents/graph"
 import FilterBar from "./components/graphComponents/filterBar"
 import ErrorPage from "./components/ErrorPage";
+import StatsPage from "./components/statsComponents/StatsPage";
+import StatsFilter from "./components/statsComponents/StatsFilter";
+import StatsText from "./components/statsComponents/StatsText"
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -36,7 +39,7 @@ function App() {
 	testLocationRedux();
 
 	return (
-		<div css={backgroundColor}>
+		<div css={backgroundC}>
 			<Navbar/>
 
 			<Switch>
@@ -90,10 +93,14 @@ function App() {
 					</div>
 				</Route>
 
-				<Route path="/statistic/us"></Route>
-				<Route path="/statistic/us/:state"></Route>
-				<Route path="/statistic/us/:states/hospitalizations"></Route>
-				<Route path="/statistic/us/:states/deaths"></Route>
+				{/* <Route path="/statistic/us"></Route> */}
+				<Route path="/statistic/:place">
+          <StatsPage/>
+        </Route>
+        <Route path="/statistic/:place/cases"></Route>
+				<Route path="/statistic/:place/hospitalizations"></Route>
+				<Route path="/statistic/:place/deaths"></Route>
+
 				<Route exact path="/testlocation">
 					<MapApp />
 				</Route>
