@@ -14,7 +14,8 @@ import FilterBar from "./components/graphComponents/filterBar"
 import ErrorPage from "./components/ErrorPage";
 import StatsPage from "./components/statsComponents/StatsPage";
 import StatsFilter from "./components/statsComponents/StatsFilter";
-import StatsText from "./components/statsComponents/StatsText"
+import StatsText from "./components/statsComponents/StatsText";
+import HomePage from "./components/HomePage";
 
 const backgroundColor = css`
 	background-color: #000000;
@@ -43,7 +44,9 @@ function App() {
 			<Navbar/>
 
 			<Switch>
-				<Route path="/home"></Route>
+				<Route path="/home">
+          <HomePage/>
+        </Route>
 				<Route path="/graph/us/:state/deaths/:days">
 					<div css={backgroundC}>
 						<FilterBar></FilterBar>
