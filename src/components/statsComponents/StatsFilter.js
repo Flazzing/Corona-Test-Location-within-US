@@ -48,7 +48,7 @@ const submit = css`
     margin-left: 30%;
     margin-right: 30%;
     width: 40%;
-    margin-top: 20%;
+    margin-top: 10%;
     font-size: .8vw;
 `
 const lab = css`
@@ -145,22 +145,6 @@ function StatsFilter(props) {
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <div css={radioHolder}>
-          <div css={radio}>
-            <input onChange={(e) => { setButton(e.target.value) }} type="radio" id="cases" name="drone" value="cases" defaultChecked></input>
-            <label css={lab} for="cases">Cases</label>
-          </div>
-
-          <div css={radio}>
-            <input onChange={(e) => { setButton(e.target.value) }} type="radio" id="deaths" name="drone" value="deaths"></input>
-            <label css={lab} for="deaths">Deaths</label>
-          </div>
-
-          <div css={radio}>
-            <input onChange={(e) => { setButton(e.target.value) }} type="radio" id="hospitalizations" name="drone" value="hospitalizations"></input>
-            <label css={lab} for="hospitalizations">Hospitalizations</label>
-          </div>
-        </div>
 
         <input type="submit" value="Submit" css={submit}></input>
       </form>

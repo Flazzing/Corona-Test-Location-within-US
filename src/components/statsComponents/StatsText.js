@@ -4,9 +4,34 @@ import { css } from "@emotion/react";
 import useCurrentCTP from "../../hooks/useCurrentCTP"
 import { Switch, Route, Redirect, Link, withRouter, useParams, useHistory} from "react-router-dom";
 
+
+const headerDate = css`
+  display: inline-block;
+  width: 100%;
+`
+
+const headerText = css`
+  display: inline-block;
+  width: 45%;
+  margin-left: 5%;
+  font-size: 3vw;
+`
+
+const blo = css`
+  display: block;
+`
+
+const statsText = css`
+  display: inline-block;
+  width: 45%;
+  margin-top: 2%;
+  margin-left: 5%;
+  font-size: 1.5vw;
+`
+
 const statBox = css `
   margin: auto;
-  width: 60%;
+  width:60%;
   margin-left: 5%;
   ${'' /* border: 5px solid #FFFF00; */}
   padding: 10px;
@@ -125,14 +150,22 @@ function StatsText(props) {
     }
     return(
       <div css = {statBox}>
-        <h2>{getLocationName(location)}</h2>
-        <h3>{date}</h3>
-        <p>Total Deaths: {totalDeaths}</p>
-        <p>Daily Deaths: {dailyDeaths}</p>
-        <p>Total Cases: {totalCases}</p>
-        <p>Daily Cases: {dailyCases}</p>
-        <p>Current Hospitalizatons: {currentHospitals}</p>
-        <p>New Hospitalizations: {dailyHospitals}</p>
+        <div css={headerDate}>
+          <h2 css={headerText}>{getLocationName(location)}</h2>
+          <h3 css={headerText}>{date}</h3>
+        </div>
+        <div css={headerDate}>
+          <p css={statsText}><b css={blo}>Total Deaths</b> {totalDeaths}</p>
+          <p css={statsText}><b css={blo}>Daily Deaths</b> {dailyDeaths}</p>
+        </div>
+        <div css={headerDate}>
+          <p css={statsText}><b css={blo}>Total Cases</b> {totalCases}</p>
+          <p css={statsText}><b css={blo}>Daily Cases</b> {dailyCases}</p>
+        </div>
+        <div css={headerDate}>
+          <p css={statsText}><b css={blo}>Current Hospitalizatons</b> {currentHospitals}</p>
+          <p css={statsText}><b css={blo}>New Hospitalizations</b> {dailyHospitals}</p>
+        </div>
       </div>
     ); 
     // <Line data={data} width={100} height={50} options={{ maintainAspectRatio: false }}></Line>
