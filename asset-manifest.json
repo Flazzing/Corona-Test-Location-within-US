@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/final-project-team-20/static/js/main.22fb3f88.chunk.js",
-    "main.js.map": "/final-project-team-20/static/js/main.22fb3f88.chunk.js.map",
-    "runtime-main.js": "/final-project-team-20/static/js/runtime-main.b7fd3ed3.js",
-    "runtime-main.js.map": "/final-project-team-20/static/js/runtime-main.b7fd3ed3.js.map",
-    "static/js/2.35a45939.chunk.js": "/final-project-team-20/static/js/2.35a45939.chunk.js",
-    "static/js/2.35a45939.chunk.js.map": "/final-project-team-20/static/js/2.35a45939.chunk.js.map",
-    "index.html": "/final-project-team-20/index.html",
-    "static/js/2.35a45939.chunk.js.LICENSE.txt": "/final-project-team-20/static/js/2.35a45939.chunk.js.LICENSE.txt"
+    "main.js": "/Corona-Tracker-Website-with-React/static/js/main.22fb3f88.chunk.js",
+    "main.js.map": "/Corona-Tracker-Website-with-React/static/js/main.22fb3f88.chunk.js.map",
+    "runtime-main.js": "/Corona-Tracker-Website-with-React/static/js/runtime-main.e183c43e.js",
+    "runtime-main.js.map": "/Corona-Tracker-Website-with-React/static/js/runtime-main.e183c43e.js.map",
+    "static/js/2.845d1ce0.chunk.js": "/Corona-Tracker-Website-with-React/static/js/2.845d1ce0.chunk.js",
+    "static/js/2.845d1ce0.chunk.js.map": "/Corona-Tracker-Website-with-React/static/js/2.845d1ce0.chunk.js.map",
+    "index.html": "/Corona-Tracker-Website-with-React/index.html",
+    "static/js/2.845d1ce0.chunk.js.LICENSE.txt": "/Corona-Tracker-Website-with-React/static/js/2.845d1ce0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b7fd3ed3.js",
-    "static/js/2.35a45939.chunk.js",
+    "static/js/runtime-main.e183c43e.js",
+    "static/js/2.845d1ce0.chunk.js",
     "static/js/main.22fb3f88.chunk.js"
   ]
 }
