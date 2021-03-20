@@ -1,5 +1,7 @@
 # Corona Tracker website CS499 project
 
+## Description
+This project is about setting up a website that keep tracks of the ongoing status of Coronavirus pandamic within the US. 
 
 ## This project relies on the api stated as below. 
 
