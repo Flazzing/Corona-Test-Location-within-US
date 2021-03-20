@@ -8,11 +8,11 @@ This project relies on the api stated as below.
  - Covid Test cases: Covid test Centers in US All 50 states (getpostman.com)
 
 Author credits: 
-  Test Location - [Flazzing](https://github.com/Flazzing)
-  Test Location bookmark - [Flazzing](https://github.com/Flazzing)
-  US daily Graphical Report - [burtomic](https://github.com/burtomic)
-  Home - [AERash](https://github.com/AERash)
-  US daily statistical Report - [AERash](https://github.com/AERash)
+  - Test Location - [Flazzing](https://github.com/Flazzing)
+  - Test Location bookmark - [Flazzing](https://github.com/Flazzing)
+  - US daily Graphical Report - [burtomic](https://github.com/burtomic)
+  - Home - [AERash](https://github.com/AERash)
+  - US daily statistical Report - [AERash](https://github.com/AERash)
 
 
 
