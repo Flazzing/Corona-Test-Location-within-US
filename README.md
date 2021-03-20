@@ -2,6 +2,18 @@
 
 ## Description
 This project is about setting up a website that keep tracks of the ongoing status of Coronavirus pandamic within the US. During the pandemic of Corona-virus, I want to built something that can help people to keep themselves safe from the virus. To do that, I built a website that will be able to help people to keep track of the ongoing pandemic at this time.
+
+## Technology being used on my test location & test location bookmark implementation
+ - React
+ - React-axios
+ - Emotion 
+ - axios
+ - react-redux
+ - react-router-dome
+ - [json-server](https://github.com/typicode/json-server)
+ - React-bootstrap
+
+
 ## This project relies on the api stated as below. 
 
  - Global coronavirus API: Global Coronavirus API (covid19api.dev)
