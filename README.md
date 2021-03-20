@@ -1,8 +1,7 @@
 # Corona Tracker website CS499 project
 
 ## Description
-This project is about setting up a website that keep tracks of the ongoing status of Coronavirus pandamic within the US. 
-
+This project is about setting up a website that keep tracks of the ongoing status of Coronavirus pandamic within the US. During the pandemic of Corona-virus, I want to built something that can help people to keep themselves safe from the virus. To do that, I built a website that will be able to help people to keep track of the ongoing pandemic at this time.
 ## This project relies on the api stated as below. 
 
  - Global coronavirus API: Global Coronavirus API (covid19api.dev)
