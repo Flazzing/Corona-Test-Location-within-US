@@ -1,4 +1,4 @@
-# Corona Tracker website CS499 project
+# COVID Testing Location Tracker website CS499 project
 
 ## Description
 
